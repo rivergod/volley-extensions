@@ -17,7 +17,6 @@ package com.navercorp.volleyextensions.volleyer.http;
 
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.navercorp.volleyextensions.volleyer.multipart.Multipart;
@@ -33,6 +32,7 @@ public class HttpContent implements MultipartContainer {
 	private HttpMethod method;
 	private String url;
 	private Map<String, String> headers;
+	private Map<String, String> params;
 	private byte[] body;
 	private Multipart multipart;
 
@@ -48,6 +48,7 @@ public class HttpContent implements MultipartContainer {
 		this.url = url;
 		this.method = method;
 		headers = new HashMap<String, String>();
+		params = new HashMap<String, String>();
 		multipart = new Multipart();
 	}
 
@@ -92,6 +93,20 @@ public class HttpContent implements MultipartContainer {
 	 */
 	public Map<String, String> getHeaders() {
 		return Collections.unmodifiableMap(headers);
+	}
+	
+	public void addParam(String key, String value) {
+		Assert.notNull(key, "Param key");
+		Assert.notNull(value, "Param value");
+		params.put(key, value);
+	}
+	
+	public String getParam(String key) {
+		return params.get(key);
+	}
+	
+	public Map<String, String> getParams() {
+		return Collections.unmodifiableMap(params);
 	}
 
 	/**

@@ -15,6 +15,8 @@
  */
 package com.navercorp.volleyextensions.volleyer.request;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Map;
 
 import com.android.volley.AuthFailureError;
@@ -67,11 +69,46 @@ public class VolleyerRequest<T> extends Request<T> implements MultipartContainer
 	public Map<String, String> getHeaders() throws AuthFailureError {
 		return httpContent.getHeaders();
 	}
+	
+	@Override
+	protected Map<String, String> getParams() throws AuthFailureError {
+		return httpContent.getParams(); 
+	}
 
 	@Override
 	public byte[] getBody() {
+		
+        Map<String, String> params = null;
+        try {
+        	params = getParams();
+        } catch (AuthFailureError e) {
+        	throw new RuntimeException("Cannot get params: " + e.getMessage(), e);
+        }
+        
+        if (params != null && params.size() > 0) {
+            return encodeParameters(params, getParamsEncoding());
+        }
+        
 		return httpContent.getBody();
 	}
+
+    /**
+     * Converts <code>params</code> into an application/x-www-form-urlencoded encoded string.
+     */
+    private byte[] encodeParameters(Map<String, String> params, String paramsEncoding) {
+        StringBuilder encodedParams = new StringBuilder();
+        try {
+            for (Map.Entry<String, String> entry : params.entrySet()) {
+                encodedParams.append(URLEncoder.encode(entry.getKey(), paramsEncoding));
+                encodedParams.append('=');
+                encodedParams.append(URLEncoder.encode(entry.getValue(), paramsEncoding));
+                encodedParams.append('&');
+            }
+            return encodedParams.toString().getBytes(paramsEncoding);
+        } catch (UnsupportedEncodingException uee) {
+            throw new RuntimeException("Encoding not supported: " + paramsEncoding, uee);
+        }
+    }
 
 	@Override
 	protected void deliverResponse(T result) {

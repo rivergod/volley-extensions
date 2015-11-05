@@ -70,6 +70,14 @@ abstract class RequestBuilder<B extends RequestBuilder<B>> {
 		httpContent.addHeader(key, value);
 		return (B) this;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public B addParam(String key, String value) {
+		assertFinishState();
+		
+		httpContent.addParam(key, value);
+		return (B) this;
+	}
 
 	/**
 	 * <pre>
