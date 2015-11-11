@@ -17,6 +17,8 @@ package com.navercorp.volleyextensions.volleyer.request.executor;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.navercorp.volleyextensions.volleyer.VolleyerConfiguration;
+
 /**
  * <pre>
  * An interface that determines how to execute a Request object after completion of settings by volleyer.

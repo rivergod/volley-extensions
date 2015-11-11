@@ -119,7 +119,7 @@ abstract class BodyBuilder<B extends BodyBuilder<B>> extends RequestBuilder<B> {
 	 * Do not add any part unless body should be ignored.
 	 * </pre>
 	 * @param name Part name, must not be null.
-	 * @param file {@code File} object which has an actual path.
+	 * @param value string which has an actual path.
 	 *
 	 */
 	@SuppressWarnings("unchecked")

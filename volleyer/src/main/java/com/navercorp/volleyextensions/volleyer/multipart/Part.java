@@ -36,7 +36,7 @@ public interface Part extends Writable {
 	 * Get a content as {@code InputStream}
 	 *
 	 * WARN : Don't close {@code InputStream} in this method,
-	 * {@InputStream} automatically closes after reading.
+	 * {@code InputStream} automatically closes after reading.
 	 * </pre>
 	 */
 	InputStream getContent() throws IOException;

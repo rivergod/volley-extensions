@@ -22,6 +22,7 @@ import java.io.OutputStream;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 
+import com.navercorp.volleyextensions.volleyer.multipart.stack.MultipartHttpClientStack;
 import com.navercorp.volleyextensions.volleyer.util.Assert;
 /**
  * {@code HttpEntity} wrapper for sending {@code Multipart}.

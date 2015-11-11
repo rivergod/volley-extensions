@@ -21,7 +21,7 @@ import com.nostra13.universalimageloader.core.DefaultConfigurationFactory;
  * <pre>
  * A factory that creates a customized, and protective {@code FileNameGenerator}.
  * This generator class is made for special purpose, and is used only for disc caches of this library.
- * You see the comment in {@link PrefixNameGenerator} for details.
+ * You see the comment in {@link PrefixFileNameGenerator} for details.
  * </pre>
  * 
  * @author Wonjun Kim

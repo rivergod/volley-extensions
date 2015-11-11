@@ -43,7 +43,7 @@ public abstract class AbstractPart implements Part {
 	/**
 	 * <pre>
 	 * Write content to {@code OutputStream} with generating a form of a part. 
-	 * To help for implementation, refered to rfc1341 : {@link //www.w3.org/Protocols/rfc1341/7_2_Multipart.html}.
+	 * To help for implementation, referred to rfc1341 : <a href="//www.w3.org/Protocols/rfc1341/7_2_Multipart.html">http://www.w3.org/Protocols/rfc1341/7_2_Multipart.html</a>.
 	 * </pre>
 	 */
 	@Override

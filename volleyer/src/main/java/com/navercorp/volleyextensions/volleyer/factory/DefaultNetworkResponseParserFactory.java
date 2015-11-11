@@ -36,7 +36,7 @@ public class DefaultNetworkResponseParserFactory {
 	private static final String SIMPLE_XML_CLASS_NAME = "org.simpleframework.xml.core.Persister";
 	/**
 	 * <pre>
-	 * Create a response parser supporting json & xml types.
+	 * Create a response parser supporting json &amp; xml types.
 	 * NOTE : You must import jackson 1.x or 2.x library for supporting json type, or import simple xml library for supporting xml type.  
 	 * </pre>
 	 * @return {@link IntegratedNetworkResponseParser} instance containing xml or json parser (if each library is present). 

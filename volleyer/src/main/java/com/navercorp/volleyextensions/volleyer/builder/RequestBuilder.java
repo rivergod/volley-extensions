@@ -123,7 +123,7 @@ abstract class RequestBuilder<B extends RequestBuilder<B>> {
 		return builder;
 	}
 	/**
-	 * Set a error listener and go to settings for response({@link @ResponseBuilder}) without any request settings.
+	 * Set a error listener and go to settings for response({@link ResponseBuilder}) without any request settings.
 	 * @param errorListener volley error listener
 	 * @return ResponseBuilder for response settings
 	 */
